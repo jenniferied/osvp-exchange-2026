@@ -188,14 +188,10 @@ def render(cfg: dict) -> str:
         name, url = o.get("name", ""), o.get("url", "")
         if not o.get("logo"):
             return link(name, url, "chip")
-        white_cls = "plogo white inv" if o.get("invert") else "plogo white"
-        color_src = o.get("logo_color", o.get("logo"))
+        cls = "plogo inv" if o.get("invert") else "plogo"
         style = f' style="--lh:{esc(o["logo_scale"])}"' if o.get("logo_scale") else ""
-        imgs = (
-            f'<img class="{white_cls}" src="{esc(o["logo"])}" alt="{esc(name)}" loading="lazy">'
-            f'<img class="plogo color" src="{esc(color_src)}" alt="" aria-hidden="true" loading="lazy">'
-        )
-        box = f'<span class="plogobox"{style} title="{esc(name)}">{imgs}</span>'
+        box = (f'<span class="plogobox"{style} title="{esc(name)}">'
+               f'<img class="{cls}" src="{esc(o["logo"])}" alt="{esc(name)}" loading="lazy"></span>')
         if url:
             return f'<a href="{esc(url)}" target="_blank" rel="noopener">{box}</a>'
         return box

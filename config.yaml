@@ -29,7 +29,7 @@ scope: >
   Virtual Production in education.
 
 organizers:
-  # logo = white version (shown on dark); logo_color = full-colour shown on hover (on a white plate)
+  # logo = white version shown on dark; logo_scale resizes relative to the others
   - name: "Nanyang Technological University (NTU), Singapore"
     url: "https://www.ntu.edu.sg/adm"
     logo: "assets/logos/ntu.svg"
@@ -42,12 +42,10 @@ organizers:
   - name: "Film University Babelsberg KONRAD WOLF"
     url: "https://www.filmuniversitaet.de/"
     logo: "assets/logos/filmuni.png"          # white "glowing" version for dark
-    logo_color: "assets/logos/filmuni-black.png"   # on hover (black on white plate)
   - name: "Hamm-Lippstadt University of Applied Sciences (HSHL)"
     url: "https://www.hshl.de/"
     logo: "assets/logos/hshl.png"             # vertical lockup, recoloured white
-    logo_color: "assets/logos/hshl-color.png"
-    logo_scale: 1.4
+    logo_scale: 0.8
 note: ""   # funding note removed from the public page
 
 tracks:
