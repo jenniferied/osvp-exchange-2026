@@ -157,32 +157,49 @@ cfp:
     that name a specific stage are reviewed single-blind where anonymization is not
     feasible.
 
-# Important Dates — extended submission window for quality, event on the weekend.
+# Important Dates — worked backward from the conference with generous buffer so the
+# ACM ICPS publisher deadlines (marked *) are met comfortably.
 dates:
+  - label: "ICPS publication application *"
+    date: "by 22 June 2026"
   - label: "Call for Papers released"
-    date: "27 July 2026"
+    date: "13 July 2026"
   - label: "Submission deadline"
-    date: "19 October 2026 (AoE)"
+    date: "24 August 2026 (AoE)"
   - label: "Notification of acceptance"
-    date: "9 November 2026"
+    date: "14 September 2026"
   - label: "Camera-ready due"
-    date: "23 November 2026"
+    date: "20 September 2026"
+  - label: "Metadata upload to ACM *"
+    date: "26 September 2026"
+  - label: "APC payment due *"
+    date: "31 October 2026"
   - label: "Symposium"
     date: "5–6 December 2026"
 
-# Related external dates shown beside ours. (none — removed SIGGRAPH adjacency)
+# Footnote shown under the deadlines table (explains the * publisher deadlines).
+dates_note: >
+  * Latest dates allowed by ACM for the open-access ICPS proceedings, scheduled here with
+  extra buffer. The application to publish in ICPS must reach ACM at least 60 days before
+  the submission deadline; article metadata must be uploaded no later than 70 days before
+  the conference; and any applicable open-access charges (APCs) are due 35 days before the
+  conference. Papers whose APC is unpaid at that point cannot appear in the proceedings.
+
 related_dates: []
 
-# Calendar view (Google-Calendar-style mini months). Listed days are highlighted
-# with a hover tooltip. kind: ours = vermilion.
+# Calendar view (mini months). kind: ours = vermilion (author deadlines + event);
+# icps = slate outline (ACM publisher deadlines).
 calendar:
   year: 2026
-  months: [7, 8, 9, 10, 11, 12]
+  months: [6, 7, 8, 9, 10, 11, 12]
   events:
-    - { date: "2026-07-27", label: "CfP opens", kind: ours }
-    - { date: "2026-10-19", label: "Submission deadline", kind: ours }
-    - { date: "2026-11-09", label: "Notification of acceptance", kind: ours }
-    - { date: "2026-11-23", label: "Camera-ready due", kind: ours }
+    - { date: "2026-06-22", label: "ICPS application — last day *", kind: icps }
+    - { date: "2026-07-13", label: "CfP opens", kind: ours }
+    - { date: "2026-08-24", label: "Submission deadline", kind: ours }
+    - { date: "2026-09-14", label: "Notification of acceptance", kind: ours }
+    - { date: "2026-09-20", label: "Camera-ready due", kind: ours }
+    - { date: "2026-09-26", label: "Metadata upload to ACM *", kind: icps }
+    - { date: "2026-10-31", label: "APC payment due *", kind: icps }
     - { start: "2026-12-05", end: "2026-12-06", label: "OSVP EXCHANGE symposium", kind: ours }
 
 # Author's Guide / How-To — links to everything an author needs, with downloads.

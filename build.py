@@ -128,7 +128,7 @@ def render_calendar(cfg: dict) -> str:
                 iso = f"{year}-{m:02d}-{day:02d}"
                 evs = daymap.get(iso)
                 if evs:
-                    kind = "rel" if all(k == "related" for k, _ in evs) else "hot"
+                    kind = "rel" if all(k in ("related", "icps") for k, _ in evs) else "hot"
                     tip = " · ".join(l for _, l in evs)
                     cells += (f'<span class="cday {kind}" data-tip="{esc(tip)}" '
                               f'aria-label="{esc(tip)}" tabindex="0">{day}</span>')
@@ -138,7 +138,9 @@ def render_calendar(cfg: dict) -> str:
             f'<div class="calmonth"><div class="cmname">{esc(_calendar.month_name[m])} {year}</div>'
             f'<div class="cgrid">{dow}{cells}</div></div>'
         )
-    legend = '<div class="callegend"><span><i class="lg hot"></i> Deadlines &amp; symposium</span></div>'
+    legend = ('<div class="callegend">'
+              '<span><i class="lg hot"></i> Our deadlines &amp; symposium</span>'
+              '<span><i class="lg rel"></i> ICPS publisher deadlines *</span></div>')
     return f'<div class="cal">{"".join(blocks)}</div>{legend}'
 
 
@@ -264,9 +266,11 @@ def render(cfg: dict) -> str:
         f'<div class="related"><p class="kicker">Also on the radar</p><ul>{related}</ul></div>'
         if related else ""
     )
+    note = cfg.get("dates_note", "")
+    note_block = f'<p class="fineprint datesnote">{esc(note)}</p>' if note else ""
     dates_inner = (
         '    <div class="datesgrid">\n'
-        f'      <div class="dcol"><p class="kicker">Deadlines</p><table class="dates">{rows}</table>{related_block}</div>\n'
+        f'      <div class="dcol"><p class="kicker">Deadlines</p><table class="dates">{rows}</table>{note_block}{related_block}</div>\n'
         f'      <div class="dcol"><p class="kicker">Calendar</p>{render_calendar(cfg)}</div>\n'
         '    </div>'
     )
