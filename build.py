@@ -186,18 +186,23 @@ def render(cfg: dict) -> str:
     # --- Scope + partners (logos, linked) --------------------------------
     def org_logo(o):
         name, url = o.get("name", ""), o.get("url", "")
-        if o.get("logo"):
-            cls = "plogo inv" if o.get("invert") else "plogo"
-            box = (f'<span class="plogobox" title="{esc(name)}">'
-                   f'<img class="{cls}" src="{esc(o["logo"])}" alt="{esc(name)}" loading="lazy"></span>')
-            if url:
-                return f'<a href="{esc(url)}" target="_blank" rel="noopener">{box}</a>'
-            return box
-        return link(name, url, "chip")
+        if not o.get("logo"):
+            return link(name, url, "chip")
+        white_cls = "plogo white inv" if o.get("invert") else "plogo white"
+        color_src = o.get("logo_color", o.get("logo"))
+        style = f' style="--lh:{esc(o["logo_scale"])}"' if o.get("logo_scale") else ""
+        imgs = (
+            f'<img class="{white_cls}" src="{esc(o["logo"])}" alt="{esc(name)}" loading="lazy">'
+            f'<img class="plogo color" src="{esc(color_src)}" alt="" aria-hidden="true" loading="lazy">'
+        )
+        box = f'<span class="plogobox"{style} title="{esc(name)}">{imgs}</span>'
+        if url:
+            return f'<a href="{esc(url)}" target="_blank" rel="noopener">{box}</a>'
+        return box
     partner_logos = "".join(org_logo(o) for o in cfg.get("organizers", []))
     scope_inner = (
         f'    <p class="lead">{esc(cfg.get("scope"))}</p>\n'
-        f'    <p class="kicker mt">Organizing institutions <span class="hint">(click to open)</span></p>\n'
+        f'    <p class="kicker mt">Organizing institutions</p>\n'
         f'    <div class="plogos">{partner_logos}</div>'
     )
     if cfg.get("note"):
@@ -211,7 +216,7 @@ def render(cfg: dict) -> str:
         ("assets/band-3.jpg", "Pipeline · FilmUni"),
     ]
     band = "".join(
-        f'<figure><img src="{esc(s)}" alt="" loading="lazy"><figcaption>{esc(c)}</figcaption></figure>'
+        f'<figure><img src="{esc(s)}" alt="{esc(c)}" loading="lazy"></figure>'
         for s, c in band_imgs
     )
     parts.append(f'<div class="band">{band}</div>')
