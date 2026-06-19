@@ -223,7 +223,6 @@ committee:
   general_chairs:
     - name: "Sebastian Grobler"
       affiliation: "Visiting Professor, NTU · TH OWL"
-      role: "Founding Chair"
       url: "https://www.th-owl.de/medienproduktion/fachbereich/team/sebastian-grobler/"
       photo: "assets/people/grobler.jpg"
   program_chairs:
@@ -233,7 +232,6 @@ committee:
   publications_chairs:
     - name: "Jennifer Meier"
       affiliation: "Film University Babelsberg / TH OWL"
-      role: "Founding Chair"
       url: "https://www.th-owl.de/medienproduktion/fachbereich/team/jennifer-meier/"
       photo: "assets/people/meier.jpg"
   local_arrangements_chairs:
