@@ -128,7 +128,13 @@ def render_calendar(cfg: dict) -> str:
                 iso = f"{year}-{m:02d}-{day:02d}"
                 evs = daymap.get(iso)
                 if evs:
-                    kind = "rel" if all(k in ("related", "icps") for k, _ in evs) else "hot"
+                    kinds = {k for k, _ in evs}
+                    if kinds <= {"alt"}:
+                        kind = "alt"
+                    elif kinds <= {"related", "icps"}:
+                        kind = "rel"
+                    else:
+                        kind = "hot"
                     tip = " · ".join(l for _, l in evs)
                     cells += (f'<span class="cday {kind}" data-tip="{esc(tip)}" '
                               f'aria-label="{esc(tip)}" tabindex="0">{day}</span>')
@@ -140,7 +146,8 @@ def render_calendar(cfg: dict) -> str:
         )
     legend = ('<div class="callegend">'
               '<span><i class="lg hot"></i> Our deadlines &amp; symposium</span>'
-              '<span><i class="lg rel"></i> ICPS publisher deadlines *</span></div>')
+              '<span><i class="lg rel"></i> ICPS publisher deadlines *</span>'
+              '<span><i class="lg alt"></i> Alternative dates (provisional)</span></div>')
     return f'<div class="cal">{"".join(blocks)}</div>{legend}'
 
 
@@ -268,9 +275,11 @@ def render(cfg: dict) -> str:
     )
     note = cfg.get("dates_note", "")
     note_block = f'<p class="fineprint datesnote">{esc(note)}</p>' if note else ""
+    alt = cfg.get("date_alternatives", "")
+    alt_block = f'<p class="fineprint datesnote">{esc(alt)}</p>' if alt else ""
     dates_inner = (
         '    <div class="datesgrid">\n'
-        f'      <div class="dcol"><p class="kicker">Deadlines</p><table class="dates">{rows}</table>{note_block}{related_block}</div>\n'
+        f'      <div class="dcol"><p class="kicker">Deadlines</p><table class="dates">{rows}</table>{alt_block}{note_block}{related_block}</div>\n'
         f'      <div class="dcol"><p class="kicker">Calendar</p>{render_calendar(cfg)}</div>\n'
         '    </div>'
     )

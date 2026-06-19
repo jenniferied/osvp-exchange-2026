@@ -191,6 +191,7 @@ a.chip:hover { border-color: var(--east); color: var(--east); }
 .cday.pad { color: transparent; }
 .cday.hot { background: var(--east); color: var(--ink); font-weight: 700; }
 .cday.rel { box-shadow: inset 0 0 0 1px var(--west); color: var(--bone); }
+.cday.alt { box-shadow: inset 0 0 0 1px rgba(201,106,77,.55); color: var(--east); }
 /* hover/focus on a marked day: lift it and show a styled tooltip (no native title, no help cursor) */
 .cday.hot, .cday.rel { position: relative; cursor: default; }
 .cday.hot:hover, .cday.rel:hover, .cday.hot:focus, .cday.rel:focus { outline: 2px solid var(--bone); outline-offset: 1px; transform: scale(1.16); z-index: 31; }
@@ -207,6 +208,7 @@ a.chip:hover { border-color: var(--east); color: var(--east); }
 .lg { display: inline-block; width: 10px; height: 10px; vertical-align: middle; margin-right: .3rem; }
 .lg.hot { background: var(--east); }
 .lg.rel { box-shadow: inset 0 0 0 1px var(--west); }
+.lg.alt { box-shadow: inset 0 0 0 1px rgba(201,106,77,.55); }
 @media (max-width: 760px) { .cal { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 460px) { .cal { grid-template-columns: repeat(2, 1fr); } }
 

@@ -174,8 +174,13 @@ dates:
     date: "26 September 2026"
   - label: "APC payment due *"
     date: "31 October 2026"
-  - label: "Symposium"
+  - label: "Symposium (provisional)"
     date: "5–6 December 2026"
+
+# Small note under the table: the symposium date is not final yet.
+date_alternatives: >
+  Symposium date is provisional. Alternative dates under consideration: 10–11 December or
+  12–13 December 2026.
 
 # Footnote shown under the deadlines table (explains the * publisher deadlines).
 dates_note: >
@@ -200,7 +205,9 @@ calendar:
     - { date: "2026-09-20", label: "Camera-ready due", kind: ours }
     - { date: "2026-09-26", label: "Metadata upload to ACM *", kind: icps }
     - { date: "2026-10-31", label: "APC payment due *", kind: icps }
-    - { start: "2026-12-05", end: "2026-12-06", label: "OSVP EXCHANGE symposium", kind: ours }
+    - { start: "2026-12-05", end: "2026-12-06", label: "OSVP EXCHANGE symposium (provisional)", kind: ours }
+    - { start: "2026-12-10", end: "2026-12-11", label: "Alternative date (provisional)", kind: alt }
+    - { start: "2026-12-12", end: "2026-12-13", label: "Alternative date (provisional)", kind: alt }
 
 # Author's Guide / How-To — links to everything an author needs, with downloads.
 # Template links verified against ACM/CTAN; acmart current version v2.18 (2026/05/31).
