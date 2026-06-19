@@ -165,6 +165,10 @@ def render(cfg: dict) -> str:
     brand = ev.get("brand", "Symposium")
     year = ev.get("year", "")
 
+    # --- Internal-preview banner (top of page) ----------------------------
+    if cfg.get("internal_preview"):
+        parts.append(f'<div class="previewbar">{esc(cfg["internal_preview"])}</div>')
+
     # --- Nav --------------------------------------------------------------
     nav = [("scope", "About"), ("cfp", "Call"), ("dates", "Dates"),
            ("committee", "Committee"), ("submission", "Submit")]
@@ -428,7 +432,9 @@ def render_category(cfg: dict, fmt: dict) -> str:
         f'    <div class="fineprint">{esc(cfg.get("note", ""))}</div>\n'
         '  </div>\n</footer>'
     )
-    return "\n".join([nav, head, body_sec, footer])
+    preview = (f'<div class="previewbar">{esc(cfg["internal_preview"])}</div>'
+               if cfg.get("internal_preview") else "")
+    return "\n".join([p for p in [preview, nav, head, body_sec, footer] if p])
 
 
 def write_page(shell: str, filename: str, title: str, desc: str, body: str) -> None:
