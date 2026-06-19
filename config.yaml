@@ -248,9 +248,8 @@ calendar:
   months: [7, 8, 9, 10, 11, 12]
   events:
     - { date: "2026-07-10", label: "ICPS application — last day !", kind: icps }
-    - { date: "2026-07-13", label: "CfP opens (target)", kind: ours }
-    - { date: "2026-08-26", label: "Submission — earliest sensible close", kind: alt }
-    - { date: "2026-09-09", label: "Submission deadline — last day", kind: ours }
+    - { start: "2026-07-13", end: "2026-08-12", label: "CfP can open anywhere here (target 13 Jul)", kind: alt }
+    - { start: "2026-08-26", end: "2026-09-09", label: "Submission window — close anywhere here (later = shorter review)", kind: ours }
     - { date: "2026-09-23", label: "Notification of acceptance", kind: ours }
     - { date: "2026-09-26", label: "Metadata upload to ACM !", kind: icps }
     - { date: "2026-10-21", label: "Camera-ready + APC due !", kind: icps }
