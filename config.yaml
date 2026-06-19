@@ -1,0 +1,256 @@
+# Single source of truth for the symposium website.
+# build.py renders template.html + this file -> index.html
+# Edit values here, then run: python3 build.py
+# Placeholders to fill are marked "TBD".
+
+event:
+  brand: "OSVP EXCHANGE"       # working title — rename freely
+  year: 2026
+  edition: "Inaugural Edition"
+  subtitle: "Asia ⇄ Europe Exchange on On-Set Virtual Production & ICVFX"
+  tagline: >
+    Where Asia's momentum in technology meets Europe's heritage in production and
+    research. An inaugural meeting at the LED wall, on-set Virtual Production across
+    two continents.
+  date: "5–6 December 2026"
+  location: "Singapore"
+  adjacency: ""   # hero hint removed
+  proceedings: "Every accepted contribution — paper, talk and workshop — appears in the ACM Digital Library (ICPS) with its own DOI."
+
+scope: >
+  OSVP EXCHANGE brings together researchers, educators and practitioners working with LED
+  volumes and real-time production pipelines, across an Asia–Europe axis. Building on
+  the link between NTU Singapore (Cinematic Arts / XR Studio / CAVR), TH OWL (Virtual
+  Film Playground), Film University Babelsberg (ProSys / On-Set Virtual Production) and
+  HSHL (LED stage / VFX lab), the symposium pairs Europe's strength in educational and
+  VP research with the technological and production momentum of the Asia-Pacific region.
+  We invite contributions on production support systems, LED volume and display
+  technology, real-time worldbuilding, tracking and stage elements, and access to
+  Virtual Production in education.
+
+organizers:
+  - name: "Nanyang Technological University (NTU), Singapore"
+    url: "https://www.ntu.edu.sg/adm"
+    logo: "assets/logos/ntu.svg"
+    invert: true     # colour logo -> render as white silhouette on dark
+  - name: "TH OWL — Ostwestfalen-Lippe University of Applied Sciences and Arts"
+    url: "https://www.th-owl.de/medienproduktion/"
+    logo: "assets/logos/thowl.png"
+    invert: true
+  - name: "Film University Babelsberg KONRAD WOLF"
+    url: "https://www.filmuniversitaet.de/"
+    logo: "assets/logos/filmuni.png"   # already the white "glowing" version for dark
+  - name: "Hamm-Lippstadt University of Applied Sciences (HSHL)"
+    url: "https://www.hshl.de/"
+    logo: "assets/logos/hshl.png"       # official HSHL logo, recoloured white for the dark theme
+note: ""   # funding note removed from the public page
+
+tracks:
+  - title: "Production Support Systems & Pipelines"
+    desc: "On-set tools, real-time workflows, asset integration."
+    image: "assets/cat-environments.jpg"
+  - title: "LED Volume & Display Technology"
+    desc: "LED processing, calibration, color, genlock, frustum/tracking; showcases of real setups."
+    image: "assets/cat-led-volume.jpg"
+  - title: "Virtual Environments & Worldbuilding"
+    desc: "Environment showcases, asset creation, real-time engines."
+    image: "assets/track-volume.jpg"
+  - title: "Artistic Research & Practice"
+    desc: "Practice-based and artistic research at the volume: cinematic VR, virtual heritage, performance, creative experiments."
+    image: "assets/cat-artistic.jpg"
+  - title: "Educational Research & Access"
+    desc: "VP curricula, educational research, low-cost approaches, student projects."
+    image: "assets/cat-education.jpg"
+  - title: "Positioning, Tracking & Stage Elements"
+    desc: "Camera/object tracking, stage element integration."
+    image: "assets/cat-tracking.jpg"
+  - title: "Industry & Production Perspectives"
+    desc: "Practice talks and showcases bridging Asia and Europe."
+    image: "assets/cat-industry.jpg"
+
+# Submission formats. Every category now produces a proceedings entry (DOI),
+# following the SIGGRAPH model where talks also have a short paper.
+cfp:
+  intro: >
+    We invite submissions in English. Every accepted contribution is published in the
+    ACM Digital Library (ICPS) with an individual DOI — full and short papers, plus
+    short proceedings entries for talks and workshops.
+  formats:
+    - id: "full-paper"
+      title: "Full Papers"
+      desc: "Up to 8 pages (excl. references). Original research. Proceedings, DOI."
+      image: "assets/cat-led-volume.jpg"
+      about: >
+        Full papers present original, completed research: a method, a system, a study
+        or an evaluation, with enough detail to be reproduced and built on. This is the
+        research core of the proceedings.
+      requirements:
+        - "Up to 8 pages excluding references, in the acmart sigconf format."
+        - "Original work, not under review elsewhere."
+        - "Anonymized for double-blind review (no names/affiliations, third-person self-citation, no grant numbers)."
+        - "All authors listed with ORCID for the final metadata."
+      acm: >
+        Full papers are published in the ACM Digital Library through ICPS and uploaded
+        via ACM TAPS, which produces the DOI, ORCID links and metadata. ACM supports
+        double-blind review and provides the anonymization rules linked below.
+    - id: "short-paper"
+      title: "Short Papers"
+      desc: "Up to 4 pages (excl. references). Work in progress, case studies, showcases. Proceedings, DOI."
+      image: "assets/cat-pipelines.jpg"
+      about: >
+        Short papers are for work in progress, focused case studies, tool reports or a
+        showcase written up as a paper. Less mature than a full paper, but a real,
+        citable contribution with its own DOI.
+      requirements:
+        - "Up to 4 pages excluding references, in the acmart sigconf format."
+        - "Anonymized for double-blind review."
+        - "All authors listed with ORCID."
+      acm: >
+        Same ICPS / TAPS pipeline as full papers, with the same acmart template. A
+        showcase or LED setup that you would otherwise only demo can be documented here
+        to earn a DOI.
+    - id: "talk"
+      title: "Talks"
+      desc: "20-minute presentation with a 1–2 page extended abstract. Proceedings, DOI."
+      image: "assets/cat-environments.jpg"
+      about: >
+        A 20-minute presentation backed by a 1–2 page extended abstract, modelled on
+        SIGGRAPH Talks. Ideal for practitioners and for sharing a production result,
+        pipeline or lesson learned without writing a full paper. Open to contributors
+        without an academic degree.
+      requirements:
+        - "1–2 page extended abstract in the acmart sigconf format."
+        - "A 20-minute talk; the abstract is what enters the proceedings."
+        - "ORCID for each author; no academic degree required."
+      acm: >
+        ACM does not define a central 'talk' format; the established model is the
+        SIGGRAPH Talk, a short extended abstract published in the ACM DL alongside the
+        presentation. We follow that model, so your talk gets a DOI via TAPS. Showcases
+        that name a specific stage are reviewed single-blind.
+    - id: "workshop"
+      title: "Workshops"
+      desc: "Hands-on session at the LED wall (60–90 min) with a short proceedings write-up. Proceedings, DOI."
+      image: "assets/cat-tracking.jpg"
+      about: >
+        A 60–90 minute hands-on session at the LED wall — a tutorial, a tool walkthrough
+        or a guided exercise — accompanied by a short proceedings write-up so the
+        material stays citable after the event.
+      requirements:
+        - "A workshop proposal (goals, audience, what happens at the LED wall, duration)."
+        - "A short write-up (a few pages) in the acmart sigconf format for the proceedings."
+        - "ORCID for each organizer."
+      acm: >
+        The write-up follows the same acmart / ICPS / TAPS pipeline and receives a DOI.
+        Proposals are curated by the program committee rather than double-blind reviewed.
+  template: >
+    All submissions use the ACM Primary Article Template (acmart), current version
+    v2.18 (2026), in the 'sigconf' proceedings format — for LaTeX (Overleaf) and Word.
+    Final versions are uploaded via ACM TAPS (DOI, ORCID, metadata).
+  language: "English"
+  review: >
+    Papers receive at least two documented, double-blind reviews: ACM supports
+    double-blind review and provides anonymization guidelines (no author names or
+    affiliations, third-person self-citation, no grant numbers). Practice showcases
+    that name a specific stage are reviewed single-blind where anonymization is not
+    feasible. See the Author's Guide below.
+
+# Important Dates — extended submission window for quality, event on the weekend.
+dates:
+  - label: "Call for Papers released"
+    date: "27 July 2026"
+  - label: "Submission deadline"
+    date: "19 October 2026 (AoE)"
+  - label: "Notification of acceptance"
+    date: "9 November 2026"
+  - label: "Camera-ready due"
+    date: "23 November 2026"
+  - label: "Symposium"
+    date: "5–6 December 2026"
+
+# Related external dates shown beside ours. (none — removed SIGGRAPH adjacency)
+related_dates: []
+
+# Calendar view (Google-Calendar-style mini months). Listed days are highlighted
+# with a hover tooltip. kind: ours = vermilion.
+calendar:
+  year: 2026
+  months: [7, 8, 9, 10, 11, 12]
+  events:
+    - { date: "2026-07-27", label: "CfP opens", kind: ours }
+    - { date: "2026-10-19", label: "Submission deadline", kind: ours }
+    - { date: "2026-11-09", label: "Notification of acceptance", kind: ours }
+    - { date: "2026-11-23", label: "Camera-ready due", kind: ours }
+    - { start: "2026-12-05", end: "2026-12-06", label: "OSVP EXCHANGE symposium", kind: ours }
+
+# Author's Guide / How-To — links to everything an author needs, with downloads.
+# Template links verified against ACM/CTAN; acmart current version v2.18 (2026/05/31).
+resources:
+  - title: "acmart template — current package (download)"
+    desc: "Latest acmart v2.18 (2026) fetched fresh from CTAN. LaTeX class, ACM reference format, sigconf samples."
+    href: "downloads/acmart-template.zip"
+    download: true
+  - title: "ACM Primary Article Template (official page)"
+    desc: "ACM's authoritative template page — LaTeX, Word (acm_submission_template.docx) and instructions."
+    href: "https://www.acm.org/publications/proceedings-template"
+  - title: "acmart on Overleaf — sigconf"
+    desc: "Open the official proceedings template directly in Overleaf, no install."
+    href: "https://www.overleaf.com/latex/templates/association-for-computing-machinery-acm-sig-proceedings-template/bmvfhcdnxfty"
+  - title: "acmart source (GitHub / CTAN)"
+    desc: "The maintained source, for the always-current version."
+    href: "https://github.com/borisveytsman/acmart"
+  - title: "ACM ICPS author guidance"
+    desc: "Open access, APC rules, what ICPS authors need to know."
+    href: "https://www.acm.org/publications/icps/author-guidance"
+  - title: "ACM double-blind & anonymization policy"
+    desc: "How to anonymize a submission correctly for double-blind review."
+    href: "https://www.acm.org/publications/policies/anonymization-policy"
+  - title: "Register / find your ORCID"
+    desc: "Every author needs an ORCID for clean metadata in the ACM DL."
+    href: "https://orcid.org/register"
+
+# Submission system — set URL once the venue is created.
+submission:
+  system: "OpenReview / EasyChair / HotCRP (TBD)"
+  url: ""  # e.g. https://openreview.net/group?id=... — leave empty until live
+
+# Committee. url = institution/profile page (opens in a new tab).
+committee:
+  general_chairs:
+    - name: "Sebastian Grobler"
+      affiliation: "Visiting Professor, NTU · TH OWL"
+      role: "Founding Chair"
+      url: "https://www.th-owl.de/medienproduktion/fachbereich/team/sebastian-grobler/"
+      photo: "assets/people/grobler.jpg"
+  program_chairs:
+    - name: "NTU professor [to be named]"
+      affiliation: "Nanyang Technological University, Singapore (ADM)"
+      url: "https://www.ntu.edu.sg/adm"
+  publications_chairs:
+    - name: "Jennifer Meier"
+      affiliation: "Film University Babelsberg / TH OWL"
+      role: "Founding Chair"
+      url: "https://www.th-owl.de/medienproduktion/fachbereich/team/jennifer-meier/"
+      photo: "assets/people/meier.jpg"
+  local_arrangements_chairs:
+    - name: "NTU representative (ADM / WKWSCI)"
+      affiliation: "Nanyang Technological University, Singapore [to be named]"
+      url: "https://www.ntu.edu.sg/adm"
+  tpc:
+    - name: "Rico Dober"
+      affiliation: "Film University Babelsberg"
+      url: "https://www.filmuniversitaet.de/en/portrait/person/rico-dober"
+      photo: "assets/people/dober.jpg"
+    - name: "Stefan Albertz"
+      affiliation: "HSHL — LED stage / VFX lab"
+      url: "https://www.hshl.de/personen/prof-stefan-albertz"
+      photo: "assets/people/albertz.jpg"
+  showcase_industry_chairs:
+    - name: "Christopher Beck"
+      affiliation: "HSHL — LED wall operation (iProSys OSVP)"
+      url: "https://www.hshl.de/hochschule-hamm-lippstadt/organisation/departments/department-lippstadt2/wissenschaftliche-mitarbeitende-lippstadt2/"
+      photo: "assets/people/beck.jpg"
+    - name: "Julian Stump"
+      affiliation: "Industry / VP practice [confirm]"
+
+contact:
+  email: "TBD"  # set a dedicated symposium contact address
