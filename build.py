@@ -326,9 +326,9 @@ def render(cfg: dict) -> str:
     org_line = " · ".join(link(o.get("name"), o.get("url")) for o in cfg.get("organizers", []))
     note_html = (f'    <div class="fineprint">{esc(cfg.get("note"))}</div>\n' if cfg.get("note") else "")
     credits = (
-        '    <div class="fineprint">Images: HSHL, TH OWL, FilmUni and NTU (own photos). '
+        '    <div class="fineprint">Images: HSHL, TH OWL, FilmUni and NTU (own / partner photos). '
         'Artistic Research image: “A Dance with Virtual Reality” (Yunnan Garden VR fulldome) © NTU ADM, Benjamin Seide &amp; Ross Williams. '
-        'Industry image: University of Portsmouth CCIXR © Tim Sheerman-Chase (CC BY 2.0, via Wikimedia Commons).</div>\n'
+        'Industry image © NTU Singapore.</div>\n'
     )
     parts.append(
         '<footer>\n  <div class="wrap">\n'
