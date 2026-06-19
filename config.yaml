@@ -157,57 +157,58 @@ cfp:
     that name a specific stage are reviewed single-blind where anonymization is not
     feasible.
 
-# Important Dates — worked backward from the conference with generous buffer so the
-# ACM ICPS publisher deadlines (marked *) are met comfortably.
+# Important Dates — worked backward from the conference. Items marked "!" are hardcoded
+# ACM deadlines that cannot move (they are pinned to the conference / submission date).
 dates:
-  - label: "ICPS publication application *"
-    date: "by 22 June 2026"
+  - label: "! ICPS publication application"
+    date: "by 10 July 2026"
   - label: "Call for Papers released"
     date: "13 July 2026"
   - label: "Submission deadline"
-    date: "24 August 2026 (AoE)"
+    date: "9 September 2026 (AoE)"
   - label: "Notification of acceptance"
-    date: "14 September 2026"
-  - label: "Camera-ready due"
-    date: "20 September 2026"
-  - label: "Metadata upload to ACM *"
+    date: "23 September 2026"
+  - label: "! Metadata upload to ACM"
     date: "26 September 2026"
-  - label: "APC payment due *"
+  - label: "Camera-ready (final PDF) due"
+    date: "23 October 2026"
+  - label: "! APC payment due"
     date: "31 October 2026"
   - label: "Symposium (provisional)"
     date: "5–6 December 2026"
 
 # Small note under the table: the symposium date is not final yet.
 date_alternatives: >
-  Symposium date is provisional. Alternative dates under consideration: 10–11 December or
-  12–13 December 2026.
+  Symposium date is provisional. Alternative dates under consideration: any of
+  7–13 December 2026.
 
-# Footnote shown under the deadlines table (explains the * publisher deadlines).
+# Footnote shown under the deadlines table (explains the "!" hardcoded deadlines).
 dates_note: >
-  * Latest dates allowed by ACM for the open-access ICPS proceedings, scheduled here with
-  extra buffer. The application to publish in ICPS must reach ACM at least 60 days before
-  the submission deadline; article metadata must be uploaded no later than 70 days before
-  the conference; and any applicable open-access charges (APCs) are due 35 days before the
-  conference. Papers whose APC is unpaid at that point cannot appear in the proceedings.
+  ! Hardcoded ACM deadline — cannot be moved. The application to publish in ICPS must
+  reach ACM at least 60 days before the submission deadline; article metadata for the
+  accepted papers must be uploaded no later than 70 days before the conference; and any
+  applicable open-access charges (APCs) are due 35 days before the conference (unpaid
+  papers cannot appear in the proceedings). Metadata is the bibliographic record for
+  accepted papers and is entered after notification — the final corrected PDF
+  (camera-ready, via ACM TAPS) can follow later.
 
 related_dates: []
 
 # Calendar view (mini months). kind: ours = vermilion (author deadlines + event);
-# icps = slate outline (ACM publisher deadlines).
+# icps = slate outline (hardcoded ACM deadlines); alt = vermilion outline (provisional).
 calendar:
   year: 2026
-  months: [6, 7, 8, 9, 10, 11, 12]
+  months: [7, 8, 9, 10, 11, 12]
   events:
-    - { date: "2026-06-22", label: "ICPS application — last day *", kind: icps }
+    - { date: "2026-07-10", label: "ICPS application — last day !", kind: icps }
     - { date: "2026-07-13", label: "CfP opens", kind: ours }
-    - { date: "2026-08-24", label: "Submission deadline", kind: ours }
-    - { date: "2026-09-14", label: "Notification of acceptance", kind: ours }
-    - { date: "2026-09-20", label: "Camera-ready due", kind: ours }
-    - { date: "2026-09-26", label: "Metadata upload to ACM *", kind: icps }
-    - { date: "2026-10-31", label: "APC payment due *", kind: icps }
+    - { date: "2026-09-09", label: "Submission deadline", kind: ours }
+    - { date: "2026-09-23", label: "Notification of acceptance", kind: ours }
+    - { date: "2026-09-26", label: "Metadata upload to ACM !", kind: icps }
+    - { date: "2026-10-23", label: "Camera-ready (final PDF) due", kind: ours }
+    - { date: "2026-10-31", label: "APC payment due !", kind: icps }
     - { start: "2026-12-05", end: "2026-12-06", label: "OSVP EXCHANGE symposium (provisional)", kind: ours }
-    - { start: "2026-12-10", end: "2026-12-11", label: "Alternative date (provisional)", kind: alt }
-    - { start: "2026-12-12", end: "2026-12-13", label: "Alternative date (provisional)", kind: alt }
+    - { start: "2026-12-07", end: "2026-12-13", label: "Alternative date (provisional)", kind: alt }
 
 # Author's Guide / How-To — links to everything an author needs, with downloads.
 # Template links verified against ACM/CTAN; acmart current version v2.18 (2026/05/31).

@@ -146,7 +146,7 @@ def render_calendar(cfg: dict) -> str:
         )
     legend = ('<div class="callegend">'
               '<span><i class="lg hot"></i> Our deadlines &amp; symposium</span>'
-              '<span><i class="lg rel"></i> ICPS publisher deadlines *</span>'
+              '<span><i class="lg rel"></i> Hardcoded ACM deadlines (!)</span>'
               '<span><i class="lg alt"></i> Alternative dates (provisional)</span></div>')
     return f'<div class="cal">{"".join(blocks)}</div>{legend}'
 
