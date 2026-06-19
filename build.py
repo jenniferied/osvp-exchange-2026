@@ -232,7 +232,7 @@ def render(cfg: dict) -> str:
         href = f'{esc(f.get("id"))}.html' if f.get("id") else "#"
         fmt_cards += (
             f'<a class="card fmt" href="{href}"><div class="cardbody">'
-            f'<span class="tag">Proceedings · DOI</span>'
+            f'<span class="tag">Proceedings</span>'
             f'<h3>{esc(f.get("title"))}</h3><p>{esc(f.get("desc"))}</p>'
             f'<span class="more">Details, requirements &amp; template →</span></div></a>'
         )
@@ -326,7 +326,9 @@ def render(cfg: dict) -> str:
     org_line = " · ".join(link(o.get("name"), o.get("url")) for o in cfg.get("organizers", []))
     note_html = (f'    <div class="fineprint">{esc(cfg.get("note"))}</div>\n' if cfg.get("note") else "")
     credits = (
-        '    <div class="fineprint">Images: HSHL, TH OWL, FilmUni and NTU (own photos).</div>\n'
+        '    <div class="fineprint">Images: HSHL, TH OWL, FilmUni and NTU (own photos). '
+        'Track images: University of Portsmouth CCIXR © Tim Sheerman-Chase (CC BY 2.0); '
+        '“Captured” immersive installation by Hanna Haaslahti, 2021 (CC BY-SA 4.0) — via Wikimedia Commons.</div>\n'
     )
     parts.append(
         '<footer>\n  <div class="wrap">\n'
@@ -369,7 +371,7 @@ def render_category(cfg: dict, fmt: dict) -> str:
               if fmt.get("image") else "")
     head = (
         '<header class="subhero">\n  <div class="wrap">\n'
-        '    <p class="kicker">Submission category · Proceedings · DOI</p>\n'
+        '    <p class="kicker">Submission category · Proceedings</p>\n'
         f'    <h1>{esc(fmt.get("title"))}</h1>\n'
         f'    <p class="tagline">{esc(fmt.get("desc"))}</p>\n'
         '  </div>\n'

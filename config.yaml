@@ -81,7 +81,7 @@ cfp:
   formats:
     - id: "full-paper"
       title: "Full Papers"
-      desc: "Up to 8 pages (excl. references). Original research. Proceedings, DOI."
+      desc: "Up to 8 pages (excl. references). Original research. Proceedings."
       image: "assets/cat-led-volume.jpg"
       about: >
         Full papers present original, completed research: a method, a system, a study
@@ -98,7 +98,7 @@ cfp:
         double-blind review and provides the anonymization rules linked below.
     - id: "short-paper"
       title: "Short Papers"
-      desc: "Up to 4 pages (excl. references). Work in progress, case studies, showcases. Proceedings, DOI."
+      desc: "Up to 4 pages (excl. references). Work in progress, case studies, showcases. Proceedings."
       image: "assets/cat-pipelines.jpg"
       about: >
         Short papers are for work in progress, focused case studies, tool reports or a
@@ -114,7 +114,7 @@ cfp:
         to earn a DOI.
     - id: "talk"
       title: "Talks"
-      desc: "20-minute presentation with a 1–2 page extended abstract. Proceedings, DOI."
+      desc: "20-minute presentation with a 1–2 page extended abstract. Proceedings."
       image: "assets/cat-environments.jpg"
       about: >
         A 20-minute presentation backed by a 1–2 page extended abstract, modelled on
@@ -132,7 +132,7 @@ cfp:
         that name a specific stage are reviewed single-blind.
     - id: "workshop"
       title: "Workshops"
-      desc: "Hands-on session at the LED wall (60–90 min) with a short proceedings write-up. Proceedings, DOI."
+      desc: "Hands-on session at the LED wall (60–90 min) with a short proceedings write-up. Proceedings."
       image: "assets/cat-tracking.jpg"
       about: >
         A 60–90 minute hands-on session at the LED wall — a tutorial, a tool walkthrough
@@ -155,7 +155,7 @@ cfp:
     double-blind review and provides anonymization guidelines (no author names or
     affiliations, third-person self-citation, no grant numbers). Practice showcases
     that name a specific stage are reviewed single-blind where anonymization is not
-    feasible. See the Author's Guide below.
+    feasible.
 
 # Important Dates — extended submission window for quality, event on the weekend.
 dates:

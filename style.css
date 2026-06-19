@@ -127,10 +127,10 @@ section h2 { font-family: var(--display); font-weight: 800; font-size: clamp(2.2
 .plogos { display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; margin-top: 1.1rem; }
 .plogos a { display: inline-flex; }
 .plogobox { display: inline-flex; align-items: center; }
-.plogo { height: calc(38px * var(--lh, 1)); width: auto; max-width: 280px; object-fit: contain; opacity: .82; transition: opacity .2s, transform .2s; }
+.plogo { height: calc(46px * var(--lh, 1)); width: auto; max-width: 320px; object-fit: contain; opacity: .82; transition: opacity .2s, transform .2s; }
 .plogos a:hover .plogo, .plogobox:hover .plogo { opacity: 1; transform: translateY(-2px); }
 .plogo.inv { filter: brightness(0) invert(1); }   /* colour logo -> white silhouette */
-@media (max-width: 640px) { .plogo { height: calc(30px * var(--lh, 1)); max-width: 200px; } .plogos { gap: 1.3rem; } }
+@media (max-width: 640px) { .plogo { height: calc(36px * var(--lh, 1)); max-width: 220px; } .plogos { gap: 1.3rem; } }
 
 /* partner chips */
 .chips { display: flex; flex-wrap: wrap; gap: .6rem; }
