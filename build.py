@@ -327,8 +327,8 @@ def render(cfg: dict) -> str:
     note_html = (f'    <div class="fineprint">{esc(cfg.get("note"))}</div>\n' if cfg.get("note") else "")
     credits = (
         '    <div class="fineprint">Images: HSHL, TH OWL, FilmUni and NTU (own photos). '
-        'Track images: University of Portsmouth CCIXR © Tim Sheerman-Chase (CC BY 2.0); '
-        '“Captured” immersive installation by Hanna Haaslahti, 2021 (CC BY-SA 4.0) — via Wikimedia Commons.</div>\n'
+        'Artistic Research image: “A Dance with Virtual Reality” (Yunnan Garden VR fulldome) © NTU ADM, Benjamin Seide &amp; Ross Williams. '
+        'Industry image: University of Portsmouth CCIXR © Tim Sheerman-Chase (CC BY 2.0, via Wikimedia Commons).</div>\n'
     )
     parts.append(
         '<footer>\n  <div class="wrap">\n'
