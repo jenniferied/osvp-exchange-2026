@@ -42,16 +42,15 @@ LOGO_SVG = """<svg class="mark" viewBox="0 0 48 48" aria-hidden="true" focusable
 </svg>"""
 
 
-# Verified template links (acmart current).
+# Our own template (acmart-compatible) plus generic, non-branded helpers. We don't link
+# ACM's official template page or ICPS author guidance until ACM confirms the venue.
 TEMPLATE_LINKS = [
-    ("Download acmart (current, v2.18)", "downloads/acmart-template.zip", True),
-    ("ACM Primary Article Template (official)", "https://www.acm.org/publications/proceedings-template", False),
-    ("Open in Overleaf — sigconf", "https://www.overleaf.com/latex/templates/association-for-computing-machinery-acm-sig-proceedings-template/bmvfhcdnxfty", False),
-    ("Anonymization policy (double-blind)", "https://www.acm.org/publications/policies/anonymization-policy", False),
+    ("Download the OSVP EXCHANGE template (acmart-compatible)", "downloads/acmart-template.zip", True),
+    ("Open in Overleaf (acmart sigconf — compatible)", "https://www.overleaf.com/latex/templates/association-for-computing-machinery-acm-sig-proceedings-template/bmvfhcdnxfty", False),
 ]
 AUTHOR_LINKS = [
-    ("ACM ICPS author guidance", "https://www.acm.org/publications/icps/author-guidance", False),
     ("Register / find your ORCID", "https://orcid.org/register", False),
+    ("ACM/ICPS author guidance (added once the venue is confirmed)*", "", False),
 ]
 TEMPLATE_PREVIEW = "assets/template-preview.jpg"
 # acmart formatting facts (current v2.18). The class fixes the typography.
@@ -256,30 +255,45 @@ def render(cfg: dict) -> str:
         f'      <p><strong>Language.</strong> {esc(cfp.get("language"))}</p>\n'
         f'      <p><strong>Peer review.</strong> {esc(cfp.get("review"))}</p>\n'
         f'      <p><strong>Proceedings.</strong> {esc(ev.get("proceedings"))}</p>\n'
-        f'    </div>'
+        + (f'      <p class="provisional">{esc(cfp.get("provisional_note"))}</p>\n' if cfp.get("provisional_note") else "")
+        + f'    </div>'
     )
     parts.append(section("cfp", "Call for Papers", "Contribute", cfp_inner))
 
     # --- Important Dates + Months grid + Related -------------------------
-    rows = "".join(
-        f'<tr><td class="dt">{tbd(d.get("date"))}</td><td>{esc(d.get("label"))}</td></tr>'
-        for d in cfg.get("dates", [])
+    # Range table: every step shows EARLIEST + LAST possible date and, visibly (not in a
+    # tooltip), what it depends on. "hard" rows are pinned to an ACM rule ("!"); "confirm"
+    # rows still need the exact ACM offset checked.
+    drows = ""
+    for d in cfg.get("dates", []):
+        hard = d.get("hard")
+        confirm = d.get("confirm")
+        mark = '<span class="hardmark" title="Pinned to an ACM rule">!</span> ' if hard else ""
+        conf = ' <span class="confirm" title="Exact ACM offset still to confirm">(to confirm)</span>' if confirm else ""
+        rowcls = ' class="hardrow"' if hard else ""
+        drows += (
+            f'<tr{rowcls}>'
+            f'<td class="dt early">{tbd(d.get("earliest"))}</td>'
+            f'<td class="dt late">{tbd(d.get("latest"))}</td>'
+            f'<td class="ms">{mark}{esc(d.get("milestone"))}{conf}'
+            + (f'<span class="dep">{esc(d.get("depends"))}</span>' if d.get("depends") else "")
+            + '</td></tr>'
+        )
+    dtable = (
+        '<table class="dates ranges">'
+        '<thead><tr><th>Earliest</th><th>Last possible</th><th>Milestone &amp; what it depends on</th></tr></thead>'
+        f'<tbody>{drows}</tbody></table>'
     )
-    related = "".join(
-        f'<li><span class="rdt">{esc(d.get("date"))}</span> {esc(d.get("label"))}</li>'
-        for d in cfg.get("related_dates", [])
-    )
-    related_block = (
-        f'<div class="related"><p class="kicker">Also on the radar</p><ul>{related}</ul></div>'
-        if related else ""
-    )
+    intro = cfg.get("dates_intro", "")
+    intro_block = f'<p class="lead">{esc(intro)}</p>' if intro else ""
     note = cfg.get("dates_note", "")
     note_block = f'<p class="fineprint datesnote">{esc(note)}</p>' if note else ""
     alt = cfg.get("date_alternatives", "")
     alt_block = f'<p class="fineprint datesnote">{esc(alt)}</p>' if alt else ""
     dates_inner = (
+        f'    {intro_block}\n'
         '    <div class="datesgrid">\n'
-        f'      <div class="dcol"><p class="kicker">Deadlines</p><table class="dates">{rows}</table>{alt_block}{note_block}{related_block}</div>\n'
+        f'      <div class="dcol"><p class="kicker">Schedule (ranges)</p>{dtable}{alt_block}{note_block}</div>\n'
         f'      <div class="dcol"><p class="kicker">Calendar</p>{render_calendar(cfg)}</div>\n'
         '    </div>'
     )
@@ -362,17 +376,20 @@ def render_category(cfg: dict, fmt: dict) -> str:
     year = ev.get("year", "")
     sub = cfg.get("submission", {})
 
+    def chip(label, href, dl=False):
+        # No href -> greyed, non-clickable dummy chip (link added later).
+        if not href:
+            return f'<span class="reschip disabled">{esc(label)}</span>'
+        attrs = ' download' if dl else ' target="_blank" rel="noopener"'
+        arrow = " ↓" if dl else " ↗"
+        return f'<a class="reschip" href="{esc(href)}"{attrs}>{esc(label)}{arrow}</a>'
+
     reqs = "".join(f"<li>{esc(r)}</li>" for r in fmt.get("requirements", []))
-    tpl = "".join(
-        f'<a class="reschip" href="{esc(href)}"'
-        + (' download' if dl else ' target="_blank" rel="noopener"')
-        + f'>{esc(label)}{" ↓" if dl else " ↗"}</a>'
-        for label, href, dl in TEMPLATE_LINKS
-    )
+    tpl = "".join(chip(label, href, dl) for label, href, dl in TEMPLATE_LINKS)
     if sub.get("url"):
         cta = f'<a class="btn primary" href="{esc(sub["url"])}">Submit a {esc(fmt.get("title","")).rstrip("s")}</a>'
     else:
-        cta = '<a class="btn ghost disabled">Submission opens 1 July 2026</a>'
+        cta = '<a class="btn ghost disabled">Submission link coming soon</a>'
 
     nav = (
         '<nav class="bar">\n  <div class="wrap">\n'
@@ -390,18 +407,15 @@ def render_category(cfg: dict, fmt: dict) -> str:
         '  </div>\n'
         f'{banner}</header>'
     )
-    author = "".join(
-        f'<a class="reschip" href="{esc(href)}" target="_blank" rel="noopener">{esc(label)} ↗</a>'
-        for label, href, _ in AUTHOR_LINKS
-    )
+    author = "".join(chip(label, href) for label, href, _ in AUTHOR_LINKS)
     body_sec = (
         '<section>\n  <div class="wrap narrow">\n'
         f'    <p class="kicker">What it is</p>\n    <p class="lead">{esc(fmt.get("about"))}</p>\n'
         f'    <p class="kicker mt">Requirements</p>\n    <ul class="reqs">{reqs}</ul>\n'
-        f'    <p class="kicker mt">What ACM says</p>\n    <p>{esc(fmt.get("acm"))}</p>\n'
+        f'    <p class="kicker mt">Publication route (planned)*</p>\n    <p>{esc(fmt.get("acm"))}</p>\n'
         f'    <p class="kicker mt">Template &amp; formatting</p>\n'
         '    <div class="tplrow">\n'
-        f'      <a class="tplprev" href="downloads/acmart-template.zip" download><img src="{TEMPLATE_PREVIEW}" alt="acmart sigconf sample — top of the first page" loading="lazy"><span>acmart · sigconf — sample</span></a>\n'
+        f'      <a class="tplprev" href="downloads/acmart-template.zip" download><img src="{TEMPLATE_PREVIEW}" alt="OSVP EXCHANGE template — top of the first page" loading="lazy"><span>OSVP EXCHANGE template (acmart-compatible)</span></a>\n'
         f'      <div class="tplinfo"><p>{esc(TEMPLATE_SPECS)}</p><div class="reschips">{tpl}</div></div>\n'
         '    </div>\n'
         f'    <p class="kicker mt">More for authors</p>\n    <div class="reschips">{author}</div>\n'

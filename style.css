@@ -165,6 +165,7 @@ a.chip:hover { border-color: var(--east); color: var(--east); }
 .notes { margin-top: 2.4rem; display: grid; gap: .6rem; max-width: 70ch; }
 .notes p { margin: 0; color: #c4baa9; }
 .notes strong { color: var(--bone); font-family: var(--mono); font-size: .8rem; letter-spacing: .06em; }
+.notes .provisional { margin-top: .8rem; padding: .9rem 1.1rem; border-left: 2px solid var(--west); background: rgba(255,255,255,.03); font-size: .85rem; line-height: 1.55; color: var(--muted); }
 
 /* dates: two columns */
 .datesgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
@@ -174,7 +175,16 @@ a.chip:hover { border-color: var(--east); color: var(--east); }
 .dates .dt { font-family: var(--mono); font-size: .95rem; white-space: nowrap; padding-right: 2rem; color: var(--bone); border-left: 2px solid transparent; }
 .dates tr:hover .dt { border-left-color: var(--east); padding-left: .8rem; }
 .dates td:last-child { color: var(--muted); }
-.datesnote { margin-top: 1.2rem; font-size: .8rem; line-height: 1.55; max-width: 46ch; }
+/* range table: earliest | last possible | milestone + visible dependency */
+.dates.ranges th { text-align: left; font: 600 .72rem/1 var(--mono); letter-spacing: .04em; text-transform: uppercase; color: var(--muted); padding: 0 .5rem 1rem; border-bottom: 1px solid var(--line); }
+.dates.ranges .dt { color: var(--bone); padding-right: 1.2rem; }
+.dates.ranges .dt.late { color: var(--east); font-weight: 600; }
+.dates.ranges .ms { color: var(--bone); }
+.dates.ranges .dep { display: block; margin-top: .35rem; color: var(--muted); font-size: .82rem; line-height: 1.5; max-width: 52ch; }
+.dates.ranges .hardrow .dt.late { color: var(--west); }
+.hardmark { font-family: var(--mono); font-weight: 700; color: var(--west); }
+.confirm { font-size: .76rem; color: var(--muted); font-style: italic; }
+.datesnote { margin-top: 1.2rem; font-size: .8rem; line-height: 1.55; max-width: 52ch; }
 .related { margin-top: 1.6rem; }
 .related ul { list-style: none; padding: 0; margin: .6rem 0 0; }
 .related li { color: var(--muted); font-size: .9rem; padding: .25rem 0; }
@@ -283,6 +293,7 @@ section.alt .wrap { position: relative; }
 .reschips { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1rem; }
 .reschip { font-family: var(--mono); font-size: .76rem; padding: .55rem .9rem; border: 1px solid var(--line); color: var(--bone); transition: border-color .2s, color .2s; }
 .reschip:hover { border-color: var(--east); color: var(--east); }
+.reschip.disabled { opacity: .4; pointer-events: none; border-style: dashed; }
 
 /* category banner image under the subpage header */
 .subbanner { height: 260px; margin-top: 2.2rem; background-size: cover; background-position: center; filter: grayscale(.55) contrast(1.05) brightness(.82); border-top: 1px solid var(--line); }

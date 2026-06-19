@@ -15,7 +15,7 @@ event:
   date: "5–6 December 2026"
   location: "Singapore"
   adjacency: ""   # hero hint removed
-  proceedings: "Every accepted contribution — paper, talk and workshop — appears in the ACM Digital Library (ICPS) with its own DOI."
+  proceedings: "We plan to publish every accepted contribution — paper, talk and workshop — with its own DOI. Publication in the ACM Digital Library (ICPS) is planned and subject to ACM approving the venue.*"
 
 scope: >
   OSVP EXCHANGE brings together researchers, educators and practitioners working with LED
@@ -75,9 +75,11 @@ tracks:
 # following the SIGGRAPH model where talks also have a short paper.
 cfp:
   intro: >
-    We invite submissions in English. Every accepted contribution is published in the
-    ACM Digital Library (ICPS) with an individual DOI — full and short papers, plus
-    short proceedings entries for talks and workshops.
+    We invite submissions in English. Every accepted contribution is peer-reviewed and
+    published with an individual DOI — full and short papers, plus short proceedings
+    entries for talks and workshops. We are applying for the proceedings to appear in the
+    ACM Digital Library (ICPS); until ACM confirms the venue, the ACM/ICPS steps below are
+    our planned route and not yet final.*
   formats:
     - id: "full-paper"
       title: "Full Papers"
@@ -114,22 +116,25 @@ cfp:
         to earn a DOI.
     - id: "talk"
       title: "Talks"
-      desc: "20-minute presentation with a 1–2 page extended abstract. Proceedings."
+      desc: "20-minute presentation with a 2–4 page paper in the proceedings. Proceedings."
       image: "assets/cat-environments.jpg"
       about: >
-        A 20-minute presentation backed by a 1–2 page extended abstract, modelled on
-        SIGGRAPH Talks. Ideal for practitioners and for sharing a production result,
-        pipeline or lesson learned without writing a full paper. Open to contributors
-        without an academic degree.
+        A 20-minute presentation backed by a 2–4 page paper, modelled on SIGGRAPH Talks.
+        Ideal for practitioners and for sharing a production result, pipeline or lesson
+        learned without writing an 8-page full paper. Open to contributors without an
+        academic degree. If the work behind the talk is substantial, you may instead
+        submit a full paper (up to 8 pages) and still present it as a talk — the talk is
+        the presentation slot, and the written companion can be anything from a 2-page
+        write-up to a full paper.
       requirements:
-        - "1–2 page extended abstract in the acmart sigconf format."
-        - "A 20-minute talk; the abstract is what enters the proceedings."
+        - "A 2–4 page paper for the proceedings (a full paper of up to 8 pages is also allowed if the work warrants it)."
+        - "A 20-minute talk; the written paper is what enters the proceedings."
         - "ORCID for each author; no academic degree required."
       acm: >
-        ACM does not define a central 'talk' format; the established model is the
-        SIGGRAPH Talk, a short extended abstract published in the ACM DL alongside the
-        presentation. We follow that model, so your talk gets a DOI via TAPS. Showcases
-        that name a specific stage are reviewed single-blind.
+        The established model is the SIGGRAPH Talk: a short paper published alongside the
+        presentation, with its own DOI. We follow that model. A talk can also be backed by
+        a full paper — the presentation and the proceedings entry are scheduled separately.
+        Showcases that name a specific stage are reviewed single-blind.
     - id: "workshop"
       title: "Workshops"
       desc: "Hands-on session at the LED wall (60–90 min) with a short proceedings write-up. Proceedings."
@@ -146,51 +151,93 @@ cfp:
         The write-up follows the same acmart / ICPS / TAPS pipeline and receives a DOI.
         Proposals are curated by the program committee rather than double-blind reviewed.
   template: >
-    All submissions use the ACM Primary Article Template (acmart), current version
-    v2.18 (2026), in the 'sigconf' proceedings format — for LaTeX (Overleaf) and Word.
-    Final versions are uploaded via ACM TAPS (DOI, ORCID, metadata).
+    All submissions use the OSVP EXCHANGE template (download below), a single-column,
+    two-column-compatible layout that matches the ACM acmart 'sigconf' proceedings format
+    so that, if the venue is confirmed for ICPS, the accepted version converts to the ACM
+    Digital Library through ACM TAPS without reformatting. LaTeX and Word are provided.*
   language: "English"
   review: >
-    Papers receive at least two documented, double-blind reviews: ACM supports
-    double-blind review and provides anonymization guidelines (no author names or
-    affiliations, third-person self-citation, no grant numbers). Practice showcases
+    Papers receive at least two documented, double-blind reviews. Anonymize submissions
+    by removing author names and affiliations, using third-person self-citation and no
+    grant numbers. Practice showcases
     that name a specific stage are reviewed single-blind where anonymization is not
     feasible.
+  provisional_note: >
+    * The proceedings are planned for the ACM Digital Library via the ACM International
+    Conference Proceedings Series (ICPS). That application is in progress; until ACM
+    approves the venue we cannot use the ACM name, the ICPS name or the ACM logo as a
+    confirmed fact, so anything marked * is our intended route. If ICPS is not confirmed,
+    accepted and peer-reviewed papers will appear in our own citable online proceedings
+    with DOIs (e.g. via Zenodo). Either way the work is peer-reviewed and gets a DOI.
 
-# Important Dates — worked backward from the conference. Items marked "!" are hardcoded
-# ACM deadlines that cannot move (they are pinned to the conference / submission date).
+# Important Dates — worked BACKWARD from the (earliest provisional) symposium date,
+# 5 Dec 2026, which gives the tightest/most conservative ACM ceilings. Each row shows
+# the EARLIEST a step can realistically happen and the LAST day it can happen before the
+# next step breaks. "hard: true" = pinned to an ACM rule (rendered with "!"). "confirm:
+# true" = the exact ACM offset still needs confirming against the live agreement.
+dates_intro: >
+  Everything below is worked backward from the provisional symposium date and shown as a
+  range: the earliest a step can realistically happen, and the last day it can happen
+  before the next step breaks. The binding constraint is the ICPS publication
+  application. ACM needs it at least 60 days before the submission deadline and takes
+  4–6 weeks to decide, with no expedited review. The application can go out any time from
+  now until about 10 July 2026 — but the longer we wait, the shorter the paper-review
+  window becomes (apply at the last moment and review shrinks to ~2 weeks; apply by late
+  June and a fuller ~4-week review stays possible).
 dates:
-  - label: "! ICPS publication application"
-    date: "by 10 July 2026"
-  - label: "Call for Papers released"
-    date: "13 July 2026"
-  - label: "Submission deadline"
-    date: "9 September 2026 (AoE)"
-  - label: "Notification of acceptance"
-    date: "23 September 2026"
-  - label: "! Metadata upload to ACM"
-    date: "26 September 2026"
-  - label: "Camera-ready (final PDF) due"
-    date: "23 October 2026"
-  - label: "! APC payment due"
-    date: "31 October 2026"
-  - label: "Symposium (provisional)"
-    date: "5–6 December 2026"
+  - milestone: "ICPS publication application → ACM"
+    earliest: "now"
+    latest: "10 Jul 2026"
+    depends: "Must reach ACM ≥60 days before the submission deadline. ACM takes 4–6 weeks to decide (no expedite). This last-possible day still allows a 9 Sep submission."
+    hard: true
+  - milestone: "Call for Papers released"
+    earliest: "now"
+    latest: "12 Aug 2026"
+    depends: "Can open immediately, without ACM/ICPS branding, while the application is pending. Needs ≥4 weeks of author writing time before the submission deadline."
+  - milestone: "Submission deadline"
+    earliest: "26 Aug 2026"
+    latest: "9 Sep 2026"
+    depends: "Earliest gives authors ~4 weeks after the CfP. Latest leaves only a ~2-week review; for a fuller ~4-week review, close submissions around 26 Aug."
+  - milestone: "Notification of acceptance"
+    earliest: "9 Sep 2026"
+    latest: "23 Sep 2026"
+    depends: "After peer review. Must land before the metadata deadline so the records can be entered in time."
+  - milestone: "Metadata upload → ACM"
+    earliest: "after notification"
+    latest: "26 Sep 2026"
+    depends: "ACM requires metadata ≥70 days before the event (bibliographic record only; the corrected PDF can follow)."
+    hard: true
+  - milestone: "Camera-ready (final PDF via TAPS)"
+    earliest: "after notification"
+    latest: "21 Oct 2026"
+    depends: "After acceptance; before the APC deadline and with production time before the event."
+  - milestone: "APC payment (open-access charge)"
+    earliest: "after metadata"
+    latest: "21 Oct 2026"
+    depends: "ACM: due 45 days before the event for simultaneous publication, and may be pulled forward to the 70-day metadata deadline. Unpaid papers are dropped from the proceedings."
+    hard: true
+    confirm: true
+  - milestone: "Symposium"
+    earliest: "5 Dec 2026"
+    latest: "13 Dec 2026"
+    depends: "Provisional. A LATER date (7–13 Dec) pushes the ACM 70-day and 45-day ceilings later too and relieves the whole upstream schedule."
 
 # Small note under the table: the symposium date is not final yet.
 date_alternatives: >
-  Symposium date is provisional. Alternative dates under consideration: any of
-  7–13 December 2026.
+  Symposium date is provisional (5–6 December 2026). Any date in 7–13 December 2026 is
+  still under consideration, and a later date would relax the deadlines above.
 
-# Footnote shown under the deadlines table (explains the "!" hardcoded deadlines).
+# Footnote shown under the deadlines table (explains the "!" hard ACM deadlines).
 dates_note: >
-  ! Hardcoded ACM deadline — cannot be moved. The application to publish in ICPS must
-  reach ACM at least 60 days before the submission deadline; article metadata for the
-  accepted papers must be uploaded no later than 70 days before the conference; and any
-  applicable open-access charges (APCs) are due 35 days before the conference (unpaid
-  papers cannot appear in the proceedings). Metadata is the bibliographic record for
-  accepted papers and is entered after notification — the final corrected PDF
-  (camera-ready, via ACM TAPS) can follow later.
+  ! Pinned to an ACM rule — these move only if the conference date moves. The application
+  to publish in ICPS must reach ACM at least 60 days before the submission deadline
+  (verified); article metadata for accepted papers must be uploaded no later than 70 days
+  before the event (verified); applicable open-access charges (APCs) are due 45 days
+  before the event for simultaneous publication and may be required as early as the
+  70-day metadata deadline (offset to confirm against the current ICPS agreement). Metadata
+  is the bibliographic record, entered after notification; the final corrected PDF
+  (camera-ready, via ACM TAPS) can follow later. All ACM/ICPS steps are conditional on
+  ACM approving the venue (see the note marked * in the Call section).
 
 related_dates: []
 
@@ -201,12 +248,12 @@ calendar:
   months: [7, 8, 9, 10, 11, 12]
   events:
     - { date: "2026-07-10", label: "ICPS application — last day !", kind: icps }
-    - { date: "2026-07-13", label: "CfP opens", kind: ours }
-    - { date: "2026-09-09", label: "Submission deadline", kind: ours }
+    - { date: "2026-07-13", label: "CfP opens (target)", kind: ours }
+    - { date: "2026-08-26", label: "Submission — earliest sensible close", kind: alt }
+    - { date: "2026-09-09", label: "Submission deadline — last day", kind: ours }
     - { date: "2026-09-23", label: "Notification of acceptance", kind: ours }
     - { date: "2026-09-26", label: "Metadata upload to ACM !", kind: icps }
-    - { date: "2026-10-23", label: "Camera-ready (final PDF) due", kind: ours }
-    - { date: "2026-10-31", label: "APC payment due !", kind: icps }
+    - { date: "2026-10-21", label: "Camera-ready + APC due !", kind: icps }
     - { start: "2026-12-05", end: "2026-12-06", label: "OSVP EXCHANGE symposium (provisional)", kind: ours }
     - { start: "2026-12-07", end: "2026-12-13", label: "Alternative date (provisional)", kind: alt }
 
