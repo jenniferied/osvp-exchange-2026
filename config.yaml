@@ -270,6 +270,9 @@ committee:
       affiliation: "HSHL — LED stage / VFX lab"
       url: "https://www.hshl.de/personen/prof-stefan-albertz"
       photo: "assets/people/albertz.jpg"
+    - name: "NTU faculty member [to be named]"
+      affiliation: "Nanyang Technological University, Singapore (ADM)"
+      url: "https://www.ntu.edu.sg/adm"
   showcase_industry_chairs:
     - name: "Christopher Beck"
       affiliation: "HSHL — LED wall operation (iProSys OSVP)"
@@ -277,6 +280,9 @@ committee:
       photo: "assets/people/beck.jpg"
     - name: "Julian Stump"
       affiliation: "Industry / VP practice [confirm]"
+    - name: "NTU representative [to be named]"
+      affiliation: "Nanyang Technological University, Singapore (ADM)"
+      url: "https://www.ntu.edu.sg/adm"
 
 contact:
   email: "TBD"  # set a dedicated symposium contact address
